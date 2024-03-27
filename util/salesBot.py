@@ -4,7 +4,6 @@ import pandas as pd
 import requests
 import pinecone
 
-openai.api_key = "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"
 pinecone.init(
     api_key="7be192e0-b2fc-4ea7-8950-31ce6927c66f", environment="us-east1-gcp"
 )
