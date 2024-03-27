@@ -1,12 +1,17 @@
-import openai
+import openai, os
 import numpy as np
 import pandas as pd
 import requests
 import pinecone
+from dotenv import load_dotenv
+
+load_dotenv()
+openai.api_key = os.getenv("OPENAI_API_KEY")
 
 pinecone.init(
-    api_key="7be192e0-b2fc-4ea7-8950-31ce6927c66f", environment="us-east1-gcp"
+    api_key=os.getenv("PINECONE_API_KEY"), environment="us-east1-gcp"
 )
+
 index_name = "health-insurance"
 index = pinecone.Index(index_name)
 

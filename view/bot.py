@@ -13,21 +13,26 @@ from markupsafe import Markup
 from pdfminer.high_level import extract_text
 from model.celery import celery
 from model.tasks import process_pdf_task
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 bot = Blueprint("bot", __name__)
 
+service_account_json_path = os.getenv("SERVICE_ACCOUNT_JSON_PATH")
+
 credentials = service_account.Credentials.from_service_account_file(
-    "static/Credentials/flowbot-380922-396cd267944e.json",
+    service_account_json_path,
     scopes=["https://www.googleapis.com/auth/spreadsheets"],
 )
 
 gc = gspread.authorize(credentials)
 
+spreadsheet_key = os.getenv("SPREADSHEET_ID")
+sheet = gc.open_by_key(spreadsheet_key).sheet1
 
-sheet = gc.open_by_key("15IPEtgYTWXGPKIPqanL-Bl_-9XjDBua-wEUuJ6LnUQU").sheet1
 
-SPREADSHEET_ID = "1MPItEnTI32s5pTKtr5OI6k9ZIYALeD4WepYNWYFIB9g"
-SHEET_NAME = "Sheet1"
 service = build("sheets", "v4", credentials=credentials)
 range_ = "A:E"
 
