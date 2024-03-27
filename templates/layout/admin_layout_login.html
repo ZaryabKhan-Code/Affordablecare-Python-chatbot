@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+
+    <style>
+        .toast-top-center {
+            top: 20px;
+        }
+
+        .card {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-header {
+            background-color: #0d548c;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .btn-primary {
+            background-color: #0d548c;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 6px 10px;
+            font-size: 16px;
+            cursor: pointer;
+            float: right;
+        }
+
+        .btn-primary:disabled {
+            background-color: #4d9de8;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+
+<body style="background-color: #e0e0e0;">
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div class="card">
+                    <div class="card-header" style="font-size: larger;">
+                        Login
+                    </div>
+                    <div class="card-body">
+                        <form id="login-form">
+                            <div class="form-group">
+                                <label for="username">Email:<span style="color: red;margin-left: 4px;">*</span></label>
+                                <input type="text" id="username" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Password:<span
+                                        style="color: red;margin-left: 4px;">*</span></label>
+                                <input type="password" id="password" class="form-control">
+                            </div>
+                            <button type="submit" class="btn btn-primary" id="validate-button">Login</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        toastr.options = {
+            positionClass: "toast-top-center",
+            progressBar: true,
+            timeOut: 3000,
+            preventDuplicates: true,
+            extendedTimeOut: 4000,
+            closeButton: true,
+        };
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const loginForm = document.getElementById('login-form');
+            const usernameInput = document.getElementById('username');
+            const passwordInput = document.getElementById('password');
+            const validateButton = document.getElementById('validate-button');
+
+            loginForm.addEventListener('submit', function (event) {
+                event.preventDefault();
+                const username = usernameInput.value;
+                const password = passwordInput.value;
+
+                if (!username || !password) {
+                    if (!username) {
+                        toastr.error("Username is required.", "Error");
+                    }
+                    if (!password) {
+                        toastr.error("Password is required.", "Error");
+                    }
+                    return;
+                }
+
+                validateButton.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Loading...';
+                validateButton.disabled = true;
+
+                fetch('/validator', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ username, password })
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.error) {
+                            toastr.error(data.error, "Error");
+                            validateButton.innerHTML = "Login";
+                            validateButton.disabled = false;
+                        } else {
+                            toastr.success("Credentials Verified", "Success", { timeOut: 3000 }); // Display success message for 3 seconds
+                            setTimeout(function () {
+                                window.location.href = data.redirect_url; // Redirect to the next page after 3 seconds
+                            }, 3000); // 3000 milliseconds = 3 seconds
+                        }
+                    })
+                    .catch(error => {
+                        console.error(error);
+                        validateButton.innerHTML = "Login";
+                        validateButton.disabled = false;
+                    });
+            });
+        });
+    </script>
+</body>
+
+</html>

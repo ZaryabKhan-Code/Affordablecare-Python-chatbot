@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .center-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        ol {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 10px;
+            font-size: 16px;
+
+        }
+
+        .box {
+            width: 40%;
+            display: inline-block;
+            margin: 10px;
+            padding: 10px;
+        }
+
+        .inside {
+            padding-left: 10px;
+            border: 1px solid #ccc;
+        }
+        .navbar {
+            text-align: center;
+            padding: 7px;
+        }
+
+        .navbar-logo {
+            max-width: 100px;
+            height: auto;
+            display: inline-block;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="navbar">
+        <img src="{{ form_data.agent_company_logo }}" class="navbar-logo">
+    </div>
+    <div class="center-container">
+        <div class="container">
+            <p>
+                <center>AS REQUIRED UNDER THE {{form_data.marketplace_current_year}} CMS-9899-F AMENDMENT OF 45 CFR § 155.220
+            </p>
+            </center>
+            <p style="font-size: 18px;"><b>By signing below, I {{form_data.first_name}} {{form_data.last_name}} confirm
+                    that I have read and agree to the following terms.</b></p>
+            <ol>
+                <li>I have thoroughly reviewed all of the information that I have provided, and attest to the accuracy
+                    and completeness of the details I have submitted. I recognize that providing false, misleading, or
+                    incomplete information may result in consequences, such as the rejection of my application or legal
+                    action.</li>
+                <li>I have also reviewed the application summary sent to me, and attest that the details I provided have
+                    been accurately entered on the application by Mike Moore.</li>
+                <li>I confirm that I have provided all factual information truthfully and in good faith. I understand
+                    that this declaration is made under penalty of perjury, and I am aware that any deliberate
+                    misrepresentation may lead to legal consequences.</li>
+            </ol>
+            <p><b>Agreements</b></p>
+            <p>This Health Insurance Brokerage Services Agreement (the <b>"Agreement"</b>) is made and entered into as
+                of this <b><span style="margin-left: 5px;">{{ current_date }}</span></b> and lasts until I email
+                <b>{{form_data.agent_support_email}} to rescind permission,</b> by and <b>between:</b>
+            </p>
+            <p style="margin-top: 10px;"><b>{{form_data.agent_name}}</b> (NPN: <b>{{form_data.agent_npn}}</b>)
+                representing <b>AffordableCare.AI</b>, Health Insurance Broker hereinafter referred to as the
+                "<b>Broker</b>" or "<b>Agent</b>"</p>
+            <p style="margin-top: 10px;"><b>and</b></p>
+            <p style="margin-top: 10px;"><b>{{form_data.first_name}} {{form_data.last_name}}</b> with address
+                <b>{{form_data.residential_address}}</b> BirthDay# <b>{{form_data.your_birthday}}</b>, email
+                <b>{{form_data.email_address}}</b>, phone​ <b>{{form_data.cell_phone}}</b>, a person who is Submitting,
+                Applying, Enrolling or Renew the application for <b>ACA Insurance</b> hereinafter referred to as "I" or
+                <b>"Client"</b>.
+            </p>
+            <p style="margin-top: 10px;">I agree to have my information used and retrieved from government data sources
+                for this application. I have consent for all people I'll list on the application for their information
+                to be retrieved and used from government data sources.I understand that I'm required to provide true
+                answers and that I may be asked to provide additional information, including proof of my eligibility for
+                a Special Enrollment Period if I qualify. If I don't, I may face penalties, including the risk of losing
+                my eligibility for coverage.</p>
+            <p style="margin-top: 10px;"><b>Renewal of coverage:</b></p>
+            <p style="margin-top: 10px;">To make it easier to determine my eligibility for help paying for coverage in
+                future years, I agree to allow <b><span style="margin-left: 3px;">{{form_data.agent_name}}</span></b>
+                and his team use my income data, including information from tax returns, for the next 5 years. The
+                Marketplace will send me a notice, let me make any changes, and I can opt out at any time.</p>
+            <p style="margin-top: 10px;"><b>Tax attestation:</b></p>
+            <p>I understand that I'm not eligible for a premium tax credit if I'm found eligible for other qualifying
+                health coverage, like Medicaid, Medicare, the Children's Health Insurance Program (CHIP), or a job-based
+                health plan. I also understand that if I become eligible for other qualifying health coverage, I must
+                contact <b><span style="margin-left: 3px;">{{form_data.agent_name}}</span></b> at <b><span style="margin-left: 3px;">{{form_data.agent_support_email}}</span></b> to end my
+                Marketplace coverage and premium tax credit. If I don't, the person who files taxes in my household may
+                need to pay back my premium tax credit.</p>
+            <p style="margin-top: 10px;">I understand that because the premium tax credit will be paid on my behalf to
+                reduce the cost of health coverage for myself and/or my dependents:</p>
+            <p><b>I must file a federal income tax return for the {{form_data.marketplace_current_year}} tax year.</b> <span style="margin-left: 5px;">If I'm married at the end of {{form_data.marketplace_current_year}},
+                I must file a joint income tax return with my spouse.</span></p>
+            <p style="margin-top: 10px;"><b>I also expect that:</b></p>
+            <p>No one else will be able to claim me as a dependent on their {{form_data.marketplace_current_year}} federal income tax return. I'll claim a
+                personal exemption deduction on my {{form_data.marketplace_current_year}} federal income tax return for any individual listed on this
+                application as my dependent who is enrolled in coverage through this Marketplace, and whose premium for
+                coverage is paid in whole or in part by advance payments of the premium tax credit.</p>
+            <p style="margin-top: 10px;"><b>If any of the above changes:</b></p>
+            <p>I understand that it may impact my ability to get the premium tax credit. I also understand that when I
+                file my {{form_data.marketplace_current_year}} federal income tax return, the Internal Revenue Service (IRS) will compare the income on my
+                tax return with the income on my application. I understand that if the income on my tax return is lower
+                than the amount of income on my application, I may be eligible to get an additional premium tax credit
+                amount. On the other hand, if the income on my tax return is higher than the amount of income on my
+                application, I may owe additional federal income tax.</p>
+            <p style="margin-top: 10px;"><b>Sign and Submit:</b></p>
+            <p>By consenting to this agreement, I authorize <b><span style="margin-left: 3px;">{{form_data.agent_name}}</span></b>, NPN #
+                <b><span style="margin-left: 3px;">{{form_data.agent_npn}}</span></b>, and/or his team to view and use the confidential information provided by
+                me in writing, electronically, or by telephone only for the purposes of one or more of the following:
+            </p>
+            <p style="margin-top: 10px;">1. Searching for my existing Marketplace applications, becoming AOR of my
+                effective application, and switching plans to the best plan available.</p>
+            <p>2. Completing an application for eligibility and enrollment in a Marketplace Qualified Health Plan or
+                other government insurance affordability programs, such as Medicaid and CHIP or advance tax credits to
+                help pay for Marketplace premiums.</p>
+            <p>3. Providing ongoing account maintenance and enrollment assistance, as necessary; or</p>
+            <p>4. Responding to inquiries from the Marketplace regarding my Marketplace application.</p>
+            <p>5. Auto-renew my plan into the best available plan for the next calendar year.</p>
+            <p style="margin-top: 10px;">I know at any time I may rescind permission to access or use my data by
+                emailing <b><span style="margin-left: 5px;">{{form_data.agent_name}}</span></b> at <b><span
+                        style="margin-left: 3px;">{{form_data.agent_support_email}}</span></b></p>
+            <p>and rescinding marketplace permission.</p>
+            <p>I know that I must tell <b><span style="margin-left: 3px;">{{form_data.agent_name}}</span></b> if the
+                information I listed on this application changes. I know I can make changes in my Marketplace account or
+                by emailing <b><span style="margin-left: 1px;">{{form_data.agent_name}}</span></b> at
+                <b>{{form_data.agent_support_email}}</b>. I know a change in my information could affect eligibility for
+                member(s) of my household.
+            </p>
+            <p style="margin-top: 10px;">If anyone on your application is enrolled in Marketplace coverage and is later
+                found to have other qualifying health coverage (like Medicare, Medicaid, or CHIP), the Marketplace will
+                automatically end their Marketplace plan coverage. This will help make sure that anyone who's found to
+                have other qualifying coverage won't stay enrolled in Marketplace coverage and have to pay full cost.
+            </p>
+            <p style="margin-top: 10px;">I'm signing this application under penalty of perjury, which means I've
+                provided true answers to all of the questions to the best of my knowledge. I know I may be subject to
+                penalties under federal law if I intentionally provide false information.</p>
+            <div class="box">
+                <h3>Company/Agent Representative</h3>
+                <div class="inside">
+                    <p><b>Name of Agency:</b> {{form_data.agent_company_name }} </p>
+                    <p><b>Name of Primary Writing Agent:</b> {{form_data.agent_name}}</p>
+                    <p><b>Agent National Producer Number:</b> {{form_data.agent_npn}}</p>
+                    <p><b>Phone Number:</b> {{form_data.agent_phone}}</p>
+                </div>
+            </div>
+            <div class="box">
+                <h3>Household Contact and/or Authorized Representative</h3>
+                <div class="inside">
+                    <p><b>Full Name:</b> {{form_data.first_name}} {{form_data.last_name}}</p>
+                    <p><b>Phone Number:</b> {{form_data.cellphone}}</p>
+                    <p><b>Email Address:</b> {{form_data.email_address}}</p>
+                    <p><b>Date of Birth:</b> {{form_data.your_birthday}}</p>
+                </div>
+            </div>
+            <div style="margin-top: 5px;">
+                <h3><b>Signature:</b></h3>
+               <div style="display: inline-block; vertical-align: top; padding: 5px;margin-right: 10%;">
+                <img src="{{ image_path }}" alt="User Signature" width="500" height="150">
+                </div>
+                <b><p>Sign Date: </b>{{ current_date }}</p>
+
+
+            </div>
+            <div class="box">
+                <h3>Basic Information</h3>
+                <div class="inside">
+                    <p><b>First Name:</b> {{form_data.first_name}}</p>
+                    <p><b>Last Name:</b> {{form_data.last_name}}</p>
+                    <p><b>Date of Birth:</b> {{form_data.your_birthday}}</p>
+                    <p><b>Gender:</b> {{form_data.gender}}</p>
+                    <p><b>Phone Number:</b> {{form_data.cellphone}}</p>
+                    <p><b>Opt-in SMS:</b> {{form_data.want_to_recieve_sms_notifications}}</p>
+                    <p><b>Email Address:</b> {{form_data.email_address}}</p>
+                    <p><b>Opt-in Email:</b> {{form_data.want_to_recive_email_notifications}}</p>
+                    
+                    {% if form_data.your_social_security_number %}
+                    <p><b>SSN:</b> {{form_data.your_social_security_number}}</p>
+                    {% endif %}
+
+                    <p><b>Tobacco User:</b> {{form_data.tobacco_user}}</p>
+                    {% if form_data.martial_status %}
+                    <p><b>Marital Status:</b> {{form_data.martial_status}}</p>
+                    {% endif %}
+                    {% if form_data.is_your_mailing_address_same|lower in ['yes', 'true'] %}
+                    <p><b>Mailing Address Same:</b> Yes</p>
+                    {% else %}
+                    <p><b>Mailing Address Same:</b> No</p>
+                    <p><b>Mailing Address:</b> {{ form_data.your_mailing_address }}</p>
+                    {% endif %}
+
+                </div>
+            </div>
+            <div class="box">
+                <h3>Address</h3>
+                <div class="inside">
+                    <p><b>Residential Address:</b> {{form_data.residential_adress}}</p>
+                    {% if form_data.street_address_2 %}
+                    <p><b>Street Address 2:</b> {{ form_data.street_address_2 }}</p>
+                    {% endif %}
+                    <p><b>City:</b> {{form_data.city}}</p>
+                    <p><b>State:</b> {{form_data.state}}</p>
+                    <p><b>County:</b> {{form_data.county}}</p>
+                    <p><b>Zipcode:</b> {{form_data.zip_code}}</p>
+                </div>
+            </div>
+            {% if form_data.martial_status == 'Married' %}
+            <div class="box">
+                <h3>Spouse Information</h3>
+                <div class="inside">
+                    <p><b>Spouse Name:</b> {{form_data.spouse_full_name}}</p>
+                    <p><b>DOB:</b> {{ form_data.spouse_dob }}</p>
+                    <p><b>SSN:</b> {{form_data.spouse_ssn}}</p>
+                    <p><b>Employment:</b> {{form_data.spouse_employment}}</p>
+                    <p><b>Annual Income:</b> {{form_data.spouse_estimated_income_2023}}</p>
+                    <p><b>Spouse Need Health Insurence:</b> {{form_data.spouse_need_insurance}}</p>
+                    <p><b>Filling Taxes Jointly With Spouse:</b> {{form_data.filling_tax_jointly_with_spouse}}</p>
+                </div>
+            </div>
+            {% endif %}
+
+            {% if form_data.your_current_working_status == 'Employed' %}
+            <div class="box">
+                <h3>Personal Employment Information</h3>
+                <div class="inside">
+                    <p><b>Working Status:</b> {{form_data.your_current_working_status}}</p>
+                    <p><b>Job Description:</b> {{ form_data.most_recent_job_description }}</p>
+                    <p><b>Annual Income:</b> {{form_data.your_estimated_income}}</p>
+                    <p><b>Employer Name:</b> {{form_data.employer_name}}</p>
+                    {% if form_data.employer_offer_you_insurance %}
+                    <p><b>Employ Offer Insurance:</b> {{form_data.employer_offer_you_insurance}}</p>
+                    {% endif %}
+                </div>
+            </div>
+            {% endif %}
+            
+            {% if form_data.your_current_working_status == 'Unemployed' %}
+            <div class="box">
+                <h3>Personal Income Information</h3>
+                <div class="inside">
+                    <p><b>Working Status:</b> {{form_data.your_current_working_status}}</p>
+                    {% if form_data.how_many_total_people_are_in_your_household %}
+                    <p><b>Total Household People:</b> {{ form_data.how_many_total_people_are_in_your_household }}</p>
+                    {% endif %}
+                    <p><b>Estimated Annual Income:</b> {{form_data.what_is_your_estimated_total_annual_income_for_2023}}</p>
+                    {% if form_data.minimum_income_to_get_subsidy_agreement %}
+                    <p><b>Subsidy Agreement:</b> {{form_data.minimum_income_to_get_subsidy_agreement}}</p>
+                    {% endif %}
+                </div>
+            </div>
+            {% endif %}
+            {% if form_data.your_current_working_status == 'Disabled - Receiving Social Security' %}
+            <div class="box">
+                <h3>Social Security Income</h3>
+                <div class="inside">
+                    <p><b>Working Status:</b> {{form_data.your_current_working_status}}</p>
+                    <p><b>SS Income Amount:</b> {{form_data.socail_security_income_amount}}</p>
+                    {% if form_data.on_what_date_did_your_social_security_payments_start %}
+                    <p><b>Date of Payment Start:</b> {{form_data.on_what_date_did_your_social_security_payments_start}}</p>
+                    {% endif %}
+                    <p><b>How Often Get Income:</b> {{form_data.how_often_do_you_get_this_amount}}</p>
+                    {% if form_data.do_you_currently_have_medicare %}
+                    <p><b>Have Medicare:</b> {{form_data.do_you_currently_have_medicare}}</p>
+                    {% endif %}
+                </div>
+            </div>
+            {% endif %}
+
+            {% if form_data.do_you_currently_have_medicare == 'Yes' %}
+            <div class="box">
+                <h3>Medicare Card Information</h3>
+                <div class="inside">
+                    <p><b>Medicare Card Number:</b> {{form_data.medicare_card_number}}</p>
+                    <p><b>Claim Any Dependent on Taxes:</b> {{form_data.will_you_claim_any_dependents_on_your_taxes}}</p>
+                    
+                    {% if form_data.part_a_effective_date %}
+                    <p><b>Part A Effective Date:</b> {{form_data.part_a_effective_date}}</p>
+                    {% endif %}
+
+                    {% if form_data.part_b_effective_date %}
+                    <p><b>Part A Effective Date:</b> {{form_data.part_b_effective_date}}</p>
+                    {% endif %}
+                </div>
+            </div>
+            {% endif %}
+
+            {% if form_data.will_you_claim_any_dependents_on_your_taxes == 'Yes' %}
+            <div class="box">
+                <h3>1st Dependent Information</h3>
+                <div class="inside">
+                    <p><b>1st Dependent Name:</b> {{form_data.first_dependent_name}}</p>
+                    <p><b>1st Dependent Gender:</b> {{form_data.first_dependent_gender}}</p>
+                    <p><b>1st Dependent DOB:</b> {{form_data.first_dependent_date_of_birth}}</p>
+
+                    {% if form_data.first_dependent_ssn %}
+                    <p><b>1st Dependent SSN:</b> {{form_data.first_dependent_ssn}}</p>
+                    {% endif %}
+
+                    <p><b>1st Dependent Coverage:</b> {{form_data.dependent_1_coverage}}</p>
+                    {% if form_data.do_you_want_to_add_second_dependent %}
+                    <p><b>Add 2nd Dependent:</b> {{form_data.do_you_want_to_add_second_dependent}}</p>  
+                    {% endif %}
+                </div>
+            </div>
+            {% endif %}
+
+
+            {% if form_data.do_you_want_to_add_second_dependent == 'Yes' %}
+            <div class="box">
+                <h3>2nd Dependent Information</h3>
+                <div class="inside">
+                    <p><b>2nd Dependent Name:</b> {{form_data.second_dependent_name}}</p>
+                    <p><b>2nd Dependent Gender:</b> {{form_data.second_dependent_gender}}</p>
+                    <p><b>2nd Dependent DOB:</b> {{form_data.second_dependent_date_of_birth}}</p>
+
+                    {% if form_data.second_dependent_ssn %}
+                    <p><b>2nd Dependent SSN:</b> {{form_data.second_dependent_ssn}}</p>
+                    {% endif %}
+
+                    <p><b>2nd Dependent Coverage:</b> {{form_data.dependent_2_coverage}}</p>
+                    
+                    {% if form_data.do_you_want_to_add_third_dependent %}
+                    <p><b>Add 3rd Dependent:</b> {{form_data.do_you_want_to_add_third_dependent}}</p>  
+                    {% endif %}
+                </div>
+            </div>
+            {% endif %}
+
+            {% if form_data.do_you_want_to_add_third_dependent == 'Yes' %}
+            <div class="box">
+                <h3>3rd Dependent Information</h3>
+                <div class="inside">
+                    <p><b>3rd Dependent Name:</b> {{form_data.third_dependent_name}}</p>
+                    <p><b>3rd Dependent Gender:</b> {{form_data.third_dependent_gender}}</p>
+                    <p><b>3rd Dependent DOB:</b> {{form_data.third_dependent_date_of_birth}}</p>
+
+                    {% if form_data.third_dependent_ssn %}
+                    <p><b>3rd Dependent SSN:</b> {{form_data.third_dependent_ssn}}</p>
+                    {% endif %}
+
+                    <p><b>3rd Dependent Coverage:</b> {{form_data.dependent_3_coverage}}</p>
+                    {% if form_data.do_you_want_to_add_fourth_dependent %}
+                    <p><b>Add 4th Dependent:</b> {{form_data.do_you_want_to_add_fourth_dependent}}</p> 
+                    {% endif %} 
+                </div>
+            </div>
+            {% endif %}
+
+            {% if form_data.do_you_want_to_add_fourth_dependent == 'Yes' %}
+            <div class="box">
+                <h3>4th Dependent Information</h3>
+                <div class="inside">
+                    <p><b>4th Dependent Name:</b> {{form_data.fourth_dependent_name}}</p>
+                    <p><b>4th Dependent Gender:</b> {{form_data.fourth_dependent_gender}}</p>
+                    <p><b>4th Dependent DOB:</b> {{form_data.fourth_dependent_date_of_birth}}</p>
+
+                    {% if form_data.fourth_dependent_ssn %}
+                    <p><b>4th Dependent SSN:</b> {{form_data.fourth_dependent_ssn}}</p>
+                    {% endif %}
+
+                    <p><b>4th Dependent Coverage:</b> {{form_data.dependent_4_coverage}}</p>
+                    {% if form_data.do_you_want_to_add_fifth_dependent %}
+                    <p><b>Add 5th Dependent:</b> {{form_data.do_you_want_to_add_fifth_dependent}}</p>  
+                    {% endif %}
+                </div>
+            </div>
+            {% endif %}
+
+            {% if form_data.do_you_want_to_add_fifth_dependent == 'Yes' %}
+            <div class="box">
+                <h3>5th Dependent Information</h3>
+                <div class="inside">
+                    <p><b>5th Dependent Name:</b> {{form_data.fifth_dependent_name}}</p>
+                    <p><b>5th Dependent Gender:</b> {{form_data.fifth_dependent_gender}}</p>
+                    <p><b>5th Dependent DOB:</b> {{form_data.fifth_dependent_date_of_birth}}</p>
+
+                    {% if form_data.fifth_dependent_ssn %}
+                    <p><b>5th Dependent SSN:</b> {{form_data.fifth_dependent_ssn}}</p>
+                    {% endif %}
+
+                    <p><b>5th Dependent Coverage:</b> {{form_data.dependent_5_coverage}}</p>
+                    {% if form_data.do_you_want_to_add_sixth_dependent %}
+                    <p><b>Add 6th Dependent:</b> {{form_data.do_you_want_to_add_sixth_dependent}}</p>  
+                    {% endif %}
+                </div>
+            </div>
+            {% endif %}
+
+            {% if form_data.do_you_want_to_add_sixth_dependent == 'Yes' %}
+            <div class="box">
+                <h3>6th Dependent Information</h3>
+                <div class="inside">
+                    <p><b>6th Dependent Name:</b> {{form_data.sixth_dependent_name}}</p>
+                    <p><b>6th Dependent Gender:</b> {{form_data.sixth_dependent_gender}}</p>
+                    <p><b>6th Dependent DOB:</b> {{form_data.sixth_dependent_date_of_birth}}</p>
+
+                    {% if form_data.sixth_dependent_ssn %}
+                    <p><b>6th Dependent SSN:</b> {{form_data.sixth_dependent_ssn}}</p>
+                    {% endif %}
+
+                    <p><b>6th Dependent Coverage:</b> {{form_data.dependent_6_coverage}}</p>
+                    {% if form_data.do_you_want_to_add_another_dependent %}
+                    <p><b>Add another Dependent:</b> {{form_data.do_you_want_to_add_another_dependent}}</p>  
+                    {% endif %}
+                </div>
+            </div>
+            {% endif %}
+
+            {% if form_data.do_you_want_to_add_another_dependent == 'Yes' %}
+            <div class="box">
+                <h3>Another Dependents Information</h3>
+                <div class="inside">
+                    <p><b>Other Dependents Name & Gender:</b> {{form_data.other_dependent_names}}</p>
+                    <p><b>Do they all need Coverage:</b> {{form_data.do_all_of_these_other_dependents_need_covered_on_this_policy}}</p>
+                    <p><b>Dependents DOB:</b> {{form_data.other_dependent_birthdays}}</p>
+                    {% if form_data.other_dependent_ssns %}
+                    <p><b>Dependents SSN:</b> {{form_data.other_dependent_ssns}}</p>
+                    {% endif %}
+                </div>
+            </div>
+            {% endif %}
+
+            <div class="box">
+                <h3>Primary Care Doctor Information</h3>
+                <div class="inside">
+    
+                    {% if form_data.primary_care_doctor_see_you_regularly %}
+                    <p><b>Have Doctor:</b> {{form_data.primary_care_doctor_see_you_regularly}}</p>
+                    {% endif %}
+
+
+                    {% if form_data.full_name_of_primary_care_doctor %}
+                    <p><b>Doctor Name:</b> {{form_data.full_name_of_primary_care_doctor}}</p>
+                    {% endif %}
+
+
+                    {% if form_data.other_insurance %}
+                    <p><b>Currently Have Health Insurance:</b> {{form_data.other_insurance}}</p>
+                    {% endif %}
+
+                    {% if form_data.which_type_of_insurance_using %}
+                    <p><b>What Kind of Insurance:</b> {{form_data.which_type_of_insurance_using}}</p>
+                    {% endif %}
+
+                    {% if form_data.city_name_of_primary_care_doctor %}
+                    <p><b>City:</b> {{form_data.city_name_of_primary_care_doctor}}</p>
+                    {% endif %}
+                    
+                    {% if form_data.any_specialist %}
+                    <p><b>Any Specialist to See You:</b> {{form_data.any_specialist}}</p>
+                    {% endif %}
+
+                    {% if form_data.specialist_names_and_cities %}
+                    <p><b>Specialists Name & City:</b> {{form_data.specialist_names_and_cities}}</p>
+                    {% endif %}
+                </div>
+            </div>
+
+
+            <div class="box">
+                <h3>Medicine Information</h3>
+                <div class="inside">
+    
+                    {% if form_data.prescription_medicine %}
+                    <p><b>Prescription Medicine:</b> {{form_data.prescription_medicine}}</p>
+                    {% endif %}
+
+
+                    {% if form_data.prescription_medicine_list %}
+                    <p><b>List of Medicines:</b> {{form_data.prescription_medicine_list}}</p>
+                    {% endif %}
+
+
+                    {% if form_data.preferred_pharmacy %}
+                    <p><b>Preferred Pharmacy:</b> {{form_data.preferred_pharmacy}}</p>
+                    {% endif %}
+                </div>
+            </div>
+
+
+            <div class="box">
+                <h3>Plan Choice & Agreements</h3>
+                <div class="inside">
+    
+                    {% if form_data.plan_choice %}
+                    <p><b>Plan Choice:</b> {{form_data.plan_choice}}</p>
+                    {% endif %}
+
+
+                    {% if form_data.current_insurance_plan %}
+                    <p><b>Insurance Career:</b> {{form_data.current_insurance_plan}}</p>
+                    {% endif %}
+
+
+                    {% if form_data.yes_permission_to_mike_moore %}
+                    <p><b>Permission:</b> {{form_data.yes_permission_to_mike_moore}}</p>
+                    {% endif %}
+                </div>
+            </div>
+
+            
+
+
+        </div>
+    </div>
+
+</body>
+
+</html>

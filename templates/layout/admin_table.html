@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Admin Portal</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
+        }
+
+        .mike {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            margin: 0;
+        }
+
+        .container {
+            width: 90%;
+            margin: 20px auto;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            overflow: auto;
+            /* Added overflow property to handle table overflow */
+        }
+
+        #admin-table {
+            width: 100%;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #333;
+            color: #fff;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .dataTables_filter {
+            text-align: right;
+        }
+
+
+        .dataTables_filter label {
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        .dataTables_filter input {
+            width: 200px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+            transition: width 0.3s ease-in-out;
+        }
+
+        .dataTables_filter input:focus {
+            width: 250px;
+        }
+
+        /* Improved button styling */
+        .btn-pdf {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            /* Adjusted padding for a smaller button */
+            border-radius: 3px;
+            /* Smaller border radius */
+            cursor: pointer;
+            text-decoration: none;
+            /* Remove underline for links */
+            display: inline-block;
+            /* Prevent line breaks for links */
+        }
+
+        .btn-pdf:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 class="mike">Mikes Portal</h1>
+
+    <div class="container">
+        <a type="submit" class="btn btn-danger" style="float: right;margin-top: -10px;" href="{{url_for('admin.logout')}}">Logout</a>
+        <table id="admin-table" class="table table-bordered table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th>UUID</th>
+                    <th>Email</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Date</th>
+                    <th>Cell Phone</th>
+                    <th>Password</th>
+                    <th>Conset Type</th>
+                    <th>Pdf</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for record in records %}
+                <tr>
+                    <td>{{ record.UUID }}</td>
+                    <td>{{ record.primaryholderemail }}</td>
+                    <td>{{ record.data['first_name'] }}</td>
+                    <td>{{ record.data['last_name'] }}</td>
+                    <td>{{record.date}}</td>
+                    <td>{{ record.data['cell_phone'] }}</td>
+                    {% if record.consenttype == "2" %}
+                    <td class="password-cell">{{ record.data['first_name'] }} {{ record.data['cell_phone'] }}</td>
+                    {% else %}
+                    <td></td>
+                    {% endif %}
+                    <td>{{ record.consenttype }}</td>
+                    <td><a href="{{base_url}}get_user_pdf/{{record.primaryholderemail}}/{{ record.consenttype }}/{{record.UUID}}"
+                            target="_blank" style="text-decoration: none;"><img width="35" height="35"
+                                src="https://img.icons8.com/stickers/35/export-pdf-2.png" alt="export-pdf-2" /></a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" charset="utf8"
+        src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
+    <script type="text/javascript" charset="utf8"
+        src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap5.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#admin-table').DataTable();
+        });
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var passwordElements = document.querySelectorAll(".password-cell");
+            passwordElements.forEach(function (cell) {
+                var content = cell.textContent.trim(); // Remove leading/trailing spaces
+                var phoneNumberMatch = content.match(/\(?(\d{3})\)?[-.\s]?(\d{3})[-.\s]?(\d{4})/);
+                if (phoneNumberMatch) {
+                    var lastFourDigits = phoneNumberMatch[3]; // Extract the last four digits
+                    var nameMatch = content.match(/([A-Za-z]+)\s/); // Extract the first name
+                    var firstName = nameMatch ? nameMatch[1] : ''; // Extract the first name or use an empty string
+                    var password = firstName.toLowerCase() + lastFourDigits;
+                    cell.textContent = password;
+                }
+            });
+        });
+    </script>
+
+
+
+</body>
+
+</html>

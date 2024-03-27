@@ -1,0 +1,410 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
+body {
+  margin: 0;
+  font-family: "Montserrat";
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.navbar {
+  background-color: #0d548c;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand-logo {
+  margin-left: 15px;
+}
+
+.brand-name h1{
+  font-size: 32px;
+  word-spacing: 2px; /* Adjust the value as needed */
+
+}
+
+.brand-button {
+  margin-right: 15px;
+}
+.brand-box {
+  background-color: #ff5733;
+  width: 50px;
+  height: 65px;
+  margin-right: 15px;
+  padding-left: 60px;
+  padding-top: 18px;
+  padding-right: 60px;
+  padding-bottom: 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(255, 119, 68, 0.7), 0 0 20px rgba(255, 255, 255, 0.7); /* Add a white shadow for the shine effect */
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.brand-box:hover {
+  background-color: #ff7744;
+  box-shadow: 0 0 10px #ff7744;
+}
+
+.brand-box p {
+  font-size: 14px;
+  color: #fff;
+  margin: 2px;
+  padding: 0;
+  white-space: nowrap;
+}
+
+.brand-box i {
+  width: 18px;
+}
+@media (max-width: 768px) {
+  .navbar {
+    text-align: center; /* Center the content horizontally in mobile view */
+  }
+
+  .brand-box {
+    display: none; /* Hide the text */
+  }
+  .brand-name {
+    display: none; /* Hide the brand name in mobile view */
+  }
+  .brand-logo {
+    margin: 0 auto; /* Center the image horizontally */
+  }
+}
+
+
+
+.contact-container {
+  background-color: #f9f9f9;
+  padding: 20px 40px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  width: 80%;
+  max-width: 600px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: border-color 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.send {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transform: scale(1); 
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.send:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+hr.gradient-line {
+  border-top: 0;
+  height: 4px; /* Increased the thickness a bit */
+  background-image: linear-gradient(
+    to right,
+    #007bff,
+    #009688,
+    #007bff
+  ); /* Adapted gradient colors to blend with your design */
+  width: 100%;
+  margin: 20px 0;
+  position: relative;
+  overflow: hidden; /* This will ensure the animation stays within the boundaries of the <hr> */
+}
+
+hr.gradient-line::before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 25%; /* This determines the width of the animated shine */
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 0.75),
+    rgba(255, 255, 255, 0)
+  );
+  left: -30%; /* Starting position outside of the <hr> */
+  transform: skewX(-25deg); /* This gives a slanted effect */
+  animation: shine 1.5s infinite; /* Animation defined below */
+}
+
+@keyframes shine {
+  to {
+    left: 130%; /* Finishing position outside of the <hr> */
+  }
+}
+
+/* Add custom CSS rules for the Logout button */
+.custom-logout-button {
+  background-color: rgb(113, 113, 225);
+  font-size: 16px;
+  padding: 5px 11px;
+  border-radius: 5px;
+  color: white;
+  transition: transform 0.3s ease-in-out; /* Add bounce transition */
+}
+
+.custom-logout-button:hover {
+  text-decoration: none;
+  color: white;
+  transform: translateY(-5px);
+}
+
+#chat-messages::-webkit-scrollbar {
+  width: 8px; /* Width of the vertical scrollbar */
+}
+
+#chat-messages::-webkit-scrollbar-thumb {
+  background-color: #888; /* Color of the draggable scroll handle */
+  border-radius: 4px; /* Roundness of the draggable scroll handle */
+}
+
+#chat-messages::-webkit-scrollbar-thumb:hover {
+  background-color: #555; /* Color of the handle on hover */
+}
+
+#chat-messages::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+  border-radius: 4px;
+}
+#chat-box {
+  position:fixed;
+  top: 124px; /* Move it down 20 pixels from the top of the viewport */
+  right: 20px; /* Adjust the right position as needed */
+  height: 610px;
+  padding: 20px;
+  width: 30%; /* Change this to adjust the width of the chat box */
+  border-radius: 5px;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #e6f2ff;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  overflow: hidden;
+}
+
+
+@media (max-width: 992px) {
+  #chat-box {
+    width: 40%;
+  }
+}
+@media (max-width: 768px) {
+  #chat-box {
+    width: 60%;
+  }
+}
+@media (max-width: 576px) {
+  #chat-box {
+    width: 90%;
+  }
+}
+
+#chat-messages {
+  overflow-y: auto;
+  max-height: 900px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0px;
+}
+.chat-message {
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 10px;
+  border: 1px solid #d6d6d6;
+}
+
+.chat-user {
+  background-color: #f26530;
+  text-align: right;
+  color: white;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #b1b1b1;
+  max-width: 75%;
+  margin-left: 35%;
+}
+
+.chat-bot {
+  background-color: #4a8bd4;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+  color: white;
+  border-radius: 6px;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #92b9e6;
+}
+
+.chat-actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+.frame-input-group {
+  position: relative; /* Added this */
+  overflow: hidden; /* Added this */
+  border-top: 1px solid #c2c2c2;
+  padding: 10px;
+  background: linear-gradient(
+    135deg,
+    rgba(40, 58, 143, 1) 0%,
+    rgba(21, 101, 192, 1) 100%
+  );
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+
+  border-radius: 12px;
+
+  &:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: -5px; /* Adjusted this */
+    left: -5px; /* Adjusted this */
+    right: -5px; /* Adjusted this */
+    bottom: -5px; /* Adjusted this */
+    background: inherit;
+    filter: blur(8px);
+    opacity: 0.6;
+    z-index: -1;
+    border-radius: inherit;
+  }
+}
+
+.frame-button {
+  margin-left: 5px;
+  background: linear-gradient(
+    45deg,
+    #007bff,
+    #009688
+  ); /* Gradient background */
+  padding: 8px 12px; /* Increased padding */
+  border-radius: 5px; /* Rounded corners */
+  transition: transform 0.3s, box-shadow 0.3s; /* Added shadow transition */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Initial soft shadow */
+}
+
+.chat-actions a.btn {
+  margin-right: 5px;
+  color: white;
+  border: none;
+  background: linear-gradient(
+    45deg,
+    #007bff,
+    #009688
+  ); /* Gradient background */
+  padding: 6px 12px; /* Padding for a beefier button */
+  border-radius: 5px; /* Rounded edges for a softer look */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* A slight shadow for depth */
+  transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s; /* Added transitions */
+}
+
+.chat-actions a.btn:hover {
+  transform: scale(1.07); /* More noticeable scaling on hover */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); /* Deeper shadow on hover for a lifting effect */
+  background: linear-gradient(
+    50deg,
+    #0056b3,
+    #007766
+  ); /* A slightly shifted gradient for an active effect */
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.btn-large {
+  color: white;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+
+.enrolled-header {
+  display: inline-block;
+  background-color: #007bff; 
+  color: #fff;
+  width: 63%;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  border-radius: 5px; 
+}
+
+.enrolled-header h2{
+  text-align: center;
+  line-height: 1.3rem; 
+}
+
+.heading {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 200px;
+  align-items: center; /* Align text to the left */
+  margin-right: 500px; /* Add some margin for spacing */
+}
+
+.heading h1 {
+  font-size: 60px;
+  color: rgb(47, 47, 47);
+  margin: 0; /* Remove default margin */
+}
+
+.heading p {
+  font-size: 30px;
+  color: rgb(47, 47, 47);
+  margin: 0; /* Remove default margin */
+}

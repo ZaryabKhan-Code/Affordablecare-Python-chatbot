@@ -1,0 +1,438 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+body {
+  font-family: Montserrat;
+  background-color: white;
+}
+
+.contact-container {
+  background-color: #f9f9f9; 
+  padding: 20px 40px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 600px;
+}
+
+h1 {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+p {
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input[type="text"], 
+input[type="email"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: border-color 0.3s;
+}
+
+input[type="text"]:focus, 
+input[type="email"]:focus,
+textarea:focus {
+  border-color: #007BFF;
+  outline: none;
+}
+
+.send {
+  background-color: #007BFF;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transform: scale(1); /* Initial scale */
+  transition: background-color 0.3s, transform 0.3s; /* Smooth transition for hover effects and scaling */
+
+}
+
+.send:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+.navbar {
+  background-color: #0d548c;
+  border-radius: 10px; 
+  width: 50%; 
+  margin: 30px auto 0 auto; 
+  z-index: 1000; 
+  padding: 5px 5%; 
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); 
+  display: flex; 
+  justify-content: center;
+  align-items: center; 
+}
+
+.navbar-brand {
+  color: whitesmoke; /* Light teal brand color */
+  font-weight: 600;
+  font-size: 1.3rem; 
+  text-decoration: none; 
+  transition: color 0.3s; 
+}
+
+.navbar-brand:hover {
+  color: white; /* A slightly darker light teal on hover */
+}
+hr.gradient-line {
+  border-top: 0;
+  height: 4px; /* Increased the thickness a bit */
+  background-image: linear-gradient(to right, #007BFF, #009688, #007BFF);  /* Adapted gradient colors to blend with your design */
+  width: 100%;
+  margin: 20px 0; 
+  position: relative;
+  overflow: hidden;  /* This will ensure the animation stays within the boundaries of the <hr> */
+}
+
+hr.gradient-line::before {
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 25%;  /* This determines the width of the animated shine */
+  background: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,0.75), rgba(255,255,255,0));
+  left: -30%;  /* Starting position outside of the <hr> */
+  transform: skewX(-25deg);  /* This gives a slanted effect */
+  animation: shine 1.5s infinite; /* Animation defined below */
+}
+
+@keyframes shine {
+  to {
+    left: 130%;  /* Finishing position outside of the <hr> */
+  }
+}
+
+h2.text-center {
+  font-weight: bolder; 
+  font-size: 20px;
+  text-transform: uppercase; 
+  background: linear-gradient(135deg, rgba(40,58,143,1) 0%, rgba(21,101,192,1) 100%); /* Dark blue to lighter blue gradient */
+  padding: 10px 20px; 
+  color: white;
+  margin: 0;
+  border: 3px solid rgba(255, 255, 255, 0.3); /* Thicker, semi-transparent white border */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3), 0 4px 20px rgba(40,58,143,0.4); /* Dual shadow for depth with blueish tint */
+  text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.25); 
+  border-radius: 15px; 
+  transition: all 0.4s ease-out;
+  opacity: 0;
+  transform: translateY(-20px);
+  animation: fadeInMove 0.5s forwards 0.5s;
+
+  /* Dynamic hover effects */
+  &:hover {
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4), 0 6px 25px rgba(40,58,143,0.5); /* Increased shadows with a blueish tint on hover */
+    transform: translateY(-10px) scale(1.05);
+    background: linear-gradient(145deg, rgba(23,42,139,1) 0%, rgba(13,83,180,1) 100%); /* Slight shift in blue gradient colors for dynamic feel */
+  }
+}
+
+
+/* Add custom CSS rules for the Logout button */
+.custom-logout-button {
+  display: flex;
+  margin-left: 10px;
+  background-color: rgb(113, 113, 225);
+  font-size: 16px;
+  padding: 5px 11px;
+  border-radius: 5px;
+  color: white;
+  transition: transform 0.3s ease-in-out; /* Add bounce transition */
+}
+
+.custom-logout-button:hover {
+  text-decoration: none;
+  color: white;
+  transform: translateY(-5px);
+}
+
+
+
+@keyframes fadeInMove {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive design using media queries */
+@media only screen and (max-width: 1200px) {
+  h2.text-center {
+    font-size: 1.8em; /* Slightly smaller font for large devices */
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  h2.text-center {
+    font-size: 1.6em; /* Smaller font for medium devices like tablets */
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  h2.text-center {
+    font-size: 1.4em;
+  }
+  .navbar{
+    width: 80%;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  h2.text-center {
+    font-size: 1.2em; /* Much smaller font for mobile devices */
+  }
+}
+
+#chat-messages::-webkit-scrollbar {
+  width: 8px; /* Width of the vertical scrollbar */
+}
+
+#chat-messages::-webkit-scrollbar-thumb {
+  background-color: #888; /* Color of the draggable scroll handle */
+  border-radius: 4px; /* Roundness of the draggable scroll handle */
+}
+
+#chat-messages::-webkit-scrollbar-thumb:hover {
+  background-color: #555; /* Color of the handle on hover */
+}
+
+#chat-messages::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+  border-radius: 4px;
+}
+#chat-box {
+  height: 610px;
+  padding: 20px;
+  width:100%;
+  border-radius: 5px;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #e6f2ff; 
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  overflow: hidden;
+}
+
+
+@media (max-width: 992px) {
+  #chat-box {
+    width: 40%;
+  }
+}
+@media (max-width: 768px) {
+  #chat-box {
+    width: 60%;
+  }
+}
+@media (max-width: 576px) {
+  #chat-box {
+    width: 90%;
+  }
+}
+
+#chat-messages {
+  overflow-y: auto;
+  max-height: 900px;
+  flex: 1; 
+  display: flex;
+  flex-direction: column; 
+  margin-bottom: 0px; 
+}
+.chat-message {
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 10px;
+  border: 1px solid #d6d6d6;
+}
+
+.chat-user {
+  background-color: #F26530;
+  text-align: left;
+  color: white;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #b1b1b1;
+  max-width: 75%;
+}
+
+
+.chat-bot {
+  background-color: #4a8bd4;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+  color: white;
+  border-radius: 6px;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #92b9e6; 
+}
+
+.chat-container {
+  display: flex;
+  align-items: flex-start;
+  margin: 10px 0;
+}
+
+.chat_container_user{
+  display: flex;
+  justify-content: flex-end;
+}
+.assistant-image img {
+  height: 50px;
+  margin-top: 11px;
+  margin-right: 10px;
+  transition: box-shadow 0.3s ease; /* Smooth transition for the glow effect */
+}
+
+.assistant-image img:hover {
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.7); /* Intensified glow effect on hover */
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.3); /* Initial glow effect */
+  }
+  to {
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.7); /* Intensified glow effect */
+  }
+}
+
+.assistant-image-glow img {
+  animation: glow 1s infinite alternate; /* Apply the glow animation */
+}
+
+
+
+
+/* Define the default user image style */
+.user-image img {
+  height: 50px;
+  margin-top: 10px;
+  margin-right: 10px;
+  transition: box-shadow 0.3s ease; /* Smooth transition for the glow effect */
+}
+
+/* Add the glow effect on hover */
+.user-image img:hover {
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.7); /* Intensified glow effect on hover */
+}
+
+/* Define the glow effect animation */
+@keyframes glow {
+  from {
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.3); /* Initial glow effect */
+  }
+  to {
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.7); /* Intensified glow effect */
+  }
+}
+
+/* Apply the glow animation */
+.user-image-glow img {
+  animation: glow 1s infinite alternate; /* Apply the glow animation */
+}
+
+
+.chat-actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+.frame-input-group {
+  position: relative;  /* Added this */
+  overflow: hidden;    /* Added this */
+  border-top: 1px solid #c2c2c2;
+  padding: 10px;
+  background: linear-gradient(135deg, rgba(40,58,143,1) 0%, rgba(21,101,192,1) 100%);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+
+  border-radius: 12px;
+
+  &:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: -5px;        /* Adjusted this */
+    left: -5px;       /* Adjusted this */
+    right: -5px;      /* Adjusted this */
+    bottom: -5px;     /* Adjusted this */
+    background: inherit;
+    filter: blur(8px);
+    opacity: 0.6;
+    z-index: -1;
+    border-radius: inherit;
+  }
+}
+
+
+.frame-button {
+  margin-left: 5px;
+  background: linear-gradient(45deg, #007BFF, #009688); /* Gradient background */
+  padding: 8px 12px; /* Increased padding */
+  border-radius: 5px; /* Rounded corners */
+  transition: transform 0.3s, box-shadow 0.3s; /* Added shadow transition */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Initial soft shadow */
+}
+
+.chat-actions a.btn {
+  margin-right: 5px;
+  color: white;
+  border: none;
+  background: linear-gradient(45deg, #007BFF, #009688); /* Gradient background */
+  padding: 6px 12px; /* Padding for a beefier button */
+  border-radius: 5px; /* Rounded edges for a softer look */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* A slight shadow for depth */
+  transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s; /* Added transitions */
+}
+
+.chat-actions a.btn:hover {
+  transform: scale(1.07); /* More noticeable scaling on hover */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); /* Deeper shadow on hover for a lifting effect */
+  background: linear-gradient(50deg, #0056b3, #007766); /* A slightly shifted gradient for an active effect */
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.btn-large {
+  color:white; 
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+
+body.modal-open .your-background-class {
+  filter: blur(5px); /* Adjust the value as required */
+}

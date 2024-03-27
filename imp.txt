@@ -1,0 +1,27 @@
+
+# @bot.route("/version_9", methods=["POST"])
+# def version_9():
+#     botHeader = getAgent(9)
+#     now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+#     user_id = session.get("user_id", str(uuid.uuid4()))
+#     session["user_id"] = user_id
+
+#     query = request.form["user_input"]
+#     print(query)
+#     answer = None
+#     previous_content = last_content(user_id)
+#     print(previous_content)
+#     if previous_content != query:
+#         now = datetime.strptime(now, "%Y-%m-%d %H:%M:%S")
+#         insert_chat(now, user_id, workflow, "User", query)
+#     chat_log = create_chatlog(user_id)
+#     try:
+#         purpose = "The user wants to know more about enrolling in ACA medical insurance. Please use the user <QUERY> along with the <CHAT_LOG> to create the answer. Keep the response to the point and short."
+#         answer = questionAndAnswer(query, user_id, chat_dict, purpose, botHeader)
+#         insert_chat(
+#             now, user_id, workflow, "System", "Current state changed to neutral"
+#         )
+#     except Exception as e:
+#         answer = "Oops, it seems there's been a hiccup. Please try again!"
+#     addToMemory = insert_chat(now, user_id, workflow, "Assistant", answer)
+#     return answer

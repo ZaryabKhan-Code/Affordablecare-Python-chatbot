@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        /* Style for the entire email */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Container for the email content */
+        .container {
+            background-color: #ffffff;
+            padding: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+            border-radius: 4px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        }
+
+        /* Header style */
+        .header {
+            text-align: center;
+        }
+
+        /* Logo style */
+        .logo {
+            max-width: 150px;
+            height: auto;
+        }
+
+        /* Main content style */
+        .content {
+            margin-top: 20px;
+            line-height: 1.6;
+        }
+
+        /* Button style */
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+
+        /* Signature style */
+        .signature {
+            margin-top: 20px;
+            font-style: italic;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <img class="logo" src="https://storage.googleapis.com/msgsndr/Ia18dRMwfa2QbvohOUbU/media/3c19a4ed-26b1-4254-b5c6-f0f012489d30.png" alt="Company Logo">
+            <h1>AffordableCare.AI</h1>
+        </div>
+        <p>Dear {{first_name}} {{last_name}},</p>
+        <p>I hope this message finds you well.</p>
+        <p>The attached PDF document confirms that you have given your consent for our team to conduct a search on your behalf in the ACA Marketplace for an insurance plan. This consent will enable us to explore and identify options that suit your needs and preferences.</p>
+        <p>We kindly ask you to keep this PDF document in a secure place.</p>
+        <p>If you have any questions, concerns, or require further assistance related to your ACA Marketplace search or your insurance coverage, please reach out to us. We are here to support you in every step of this process</p>
+        <p class="signature">
+            Best regards,<br>
+            {{agent_name}}<br>
+            NPN {{agent_npn}}<br>
+            <a href="{{agent_website}}" style="text-decoration: none;">{{agent_website}}</a>
+        </p>
+    </div>
+</body>
+</html>

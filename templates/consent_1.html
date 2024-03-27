@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Signature PDF</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: white;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .box {
+            width: 45%;
+            display: inline-block;
+            padding: 16px;
+        }
+
+        .inside {
+            padding-left: 10px;
+            border: 1px solid #ccc;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .navbar {
+            text-align: center;
+            padding: 7px;
+        }
+
+        .navbar-logo {
+            max-width: 100px;
+            height: auto;
+            display: inline-block;
+            margin-right:20% ;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navbar">
+        <img src="{{ agent_company_logo }}" class="navbar-logo">
+    </div>
+    <div class="container" style="max-width: 100%;" style="margin-top: 150%;">
+        <div>
+            <div>
+                <h5>Legal Disclosure</h5>
+                <p style="font-style: italic;">
+                    The contents of this document do not have the force and effect of law and are not meant to bind the
+                    public in
+                    any way, unless specifically incorporated into a contract. This document is intended only to provide
+                    clarity to the
+                    public regarding existing requirements under the law. This model consent form will not supersede any
+                    State
+                    Agent of Record, Broker of Record, or other form required by a QHP issuer for purposes of making
+                    commission
+                    payments to the proper agent or broker for assisting a particular consumer.
+                </p>
+                <h5 style="margin-top: 20px;">Purpose Statement</h5>
+                <p>
+                    Registered agents and brokers assisting consumers apply for and enroll in Marketplace coverage must
+                    document
+                    consumer consent prior to accessing or updating their Marketplace information. CMS does not
+                    prescribe the
+                    manner in which agents and brokers must document consent. Instead, there are different formats that
+                    may be
+                    acceptable for agents and brokers to use to document consumer consent, such as via a recorded phone
+                    call, text
+                    message, email, electronic document with digital signatures, physical document with wet signatures,
+                    etc. This
+                    model consent form serves as an example for how agents and brokers may document consent via a
+                    physical
+                    document with wet signatures.
+                </p>
+                <p>
+                    Since this model consent form is a best practice for obtaining consumer consent, you may tailor the
+                    form to
+                    address the needs of your specific business model in addition to meeting the CMS requirement to
+                    document
+                    consent from a consumer prior to assisting the consumer enroll in coverage in the Marketplace,
+                    including prior
+                    to conducting a person search. For example, if an Agency is involved, you may clarify specifically
+                    who else within
+                    the Agency other than the writing Agent is able to view and use the consumer’s PII to assist the
+                    writing Agent in
+                    enrolling the consumer in Marketplace coverage for compliance, commissions, or other relevant
+                    purposes as
+                    you see fit.
+                </p>
+                <h5 style="margin-top: 150%;">Consent Form</h5>
+                <p>I, <span id="printedName" style="font-weight: bolder;">{{ primary_household_name }}</span>, give my
+                    permission to
+                    <span id="agentName" style="font-weight: bolder;">{{ primary_writing_agent }}</span> to serve as the
+                    health insurance agent or broker for myself and my entire household if applicable, for purposes of
+                    enrollment in
+                    a Qualified Health Plan offered on the Federally Facilitated Marketplace. By consenting to this
+                    agreement, I
+                    authorize the above-mentioned Agent to view and use the confidential information provided by me in
+                    writing,
+                    electronically, or by telephone only for the purposes of one or more of the following:
+                </p>
+                <ul style="list-style: none;">
+                    <li>1. Searching for an existing Marketplace application;</li>
+                    <li>2. Completing an application for eligibility and enrollment in a Marketplace Qualified Health
+                        Plan or other government insurance affordability programs, such as Medicaid and CHIP or advance
+                        tax credits to help pay for Marketplace premiums;</li>
+                    <li>3. Providing ongoing account maintenance and enrollment assistance, as necessary;</li>
+                    <li>4. Responding to inquiries from the Marketplace regarding my Marketplace application.</li>
+                </ul>
+                <p style="margin-top: 20px;">I understand that the Agent will not use or share my personally
+                    identifiable information (PII)
+                    for any purposes other than those listed above. The Agent will ensure that my PII is kept private
+                    and safe when collecting, storing, and using my PII
+                    for the stated purposes above.
+                </p>
+                <p>I confirm that the information I provide for entry on my Marketplace eligibility and enrollment
+                    application will
+                    be true to the best of my knowledge. I understand that I do not have to share additional personal
+                    information
+                    about myself or my health with my Agent beyond what is required on the application for eligibility
+                    and
+                    enrollment purposes. I understand that my consent remains in effect until I revoke it, and I may
+                    revoke or
+                    modify my consent at any time by contacting the agent.
+                </p>
+                <div class="box" style="padding-top: 50px;">
+                    <h3>Company/Agent Representative</h3>
+                    <div class="inside">
+                        <p><b>Name of Agency:</b> {{ agency_name }}</p>
+                        <p><b>Name of Agent:</b> {{ primary_writing_agent }}</p>
+                        <p><b>Agent NPN:</b> {{ agent_national_number }}</p>
+                        <p><b>Phone Number:</b> {{ agent_phone }}</p>
+                        <p><b>Email Address:</b> {{ agent_email }}</p>
+                    </div>
+                </div>
+                <div class="box">
+                    <h3>Household Contact and/or Authorized Representative</h3>
+                    <div class="inside">
+                        <p><b>Full Name:</b> {{ primary_household_name }}</p>
+                        <p><b>Phone Number:</b> {{ primary_household_phone }}</p>
+                        <p><b>Email Address:</b> {{ primary_household_email }}</p>
+                        <p><b>Date of Birth:</b> {{ dob }}</p>
+                    </div>
+                </div>
+                </div>
+                <div style="clear: both;"></div>
+                <div style="margin-top: 5px;margin-left: 6px;">
+                    <h3><b>Signature:</b></h3>
+                    <div style="display: inline-block; vertical-align: top; padding: 10px;margin-right: 10%;">
+                        <img src="{{ image_path }}" alt="User Signature" width="300" height="200">
+                    </div>
+                    <b>
+                        <p>Sign Date:
+                    </b>{{ date }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

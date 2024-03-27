@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{url_for('static',filename='style/nav.css')}}">
+    <title>{% block title %}Default Title{% endblock %}</title>
+</head>
+<body>
+
+    {% block navbar %}
+      <nav class="navbar">
+
+        <div class="brand-logo">
+            <img src="{{url_for('static',filename='image/logo.webp')}}" alt="Brand Logo" height="90px">
+        </div>
+
+        <div class="brand-name">
+            <h1><strong>Affordable Care</strong></h1>
+        </div>
+        <div class="brand-box">
+            <p style="font-weight:900;"><i class="fas fa-phone"></i><strong>LET'S TALK</strong></p>
+            <p>(512)601.5557</p>
+        </div>
+    </nav>    
+{% endblock navbar %}
+
+
+
+    
+
+{% block content %}{% endblock content %}
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
